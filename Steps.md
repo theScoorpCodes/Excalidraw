@@ -14,4 +14,4 @@
 12. Decode the token in the websocket server as well. Send the token to the websocket server in a query param(for now)
 13. Initialize a new 'db' package where you write the schema of the project.
 14. Import the db package in http layer and start putting things in the DB.
-15. Add a common package where we add teh zod schema and the JWT_SECRET
+15. Add a common package where we add the zod schema and the JWT_SECRET
