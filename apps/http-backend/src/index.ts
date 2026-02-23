@@ -1,6 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import userRoutes from "./routes/user.routes";
+import { prisma } from "@repo/db/client";
 
 const app = express();
 app.use(express.json());
@@ -9,6 +10,21 @@ app.use("/users", userRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello from http-backend!");
+});
+
+app.get("/chats/:roomId", async (req, res) => {
+  const roomId = Number(req.params.roomId);
+  const messages = await prisma.chat.findMany({
+    where: {
+      roomId,
+    },
+    orderBy: {
+      id: "desc",
+    },
+    take: 10,
+  })
+
+  res.json(messages);
 });
 
 app.listen(3001, () => {
