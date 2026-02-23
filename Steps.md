@@ -15,3 +15,8 @@
 13. Initialize a new 'db' package where you write the schema of the project.
 14. Import the db package in http layer and start putting things in the DB.
 15. Add a common package where we add teh zod schema and the JWT_SECRET
+16. Defining the schema in schema.prisma
+17. Complete the HTTP backend
+18. ws layer, room management, broadcast messages
+19. HTTP route for GET /chats?room=123
+20. frontend
