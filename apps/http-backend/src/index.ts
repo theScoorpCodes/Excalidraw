@@ -26,6 +26,21 @@ app.get("/chats/:roomId", async (req, res) => {
 
   res.json(messages);
 });
+app.get("/room/:slug", async (req, res) => {
+  const slug = (req.params.slug);
+  const room = await prisma.room.findMany({
+    where: {
+     slug
+    },
+  })
+
+  res.json({
+    room
+  });
+});
+
+
+
 
 app.listen(3001, () => {
   console.log("http-backend listening on port 3001");
